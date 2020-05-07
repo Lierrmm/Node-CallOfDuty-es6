@@ -27,7 +27,6 @@
   },
   "homepage": "https://github.com/Lierrmm/Node-CallOfDuty-es6#readme",
   "dependencies": {
-    "@types/node": "^13.13.5",
     "axios": "^0.19.2",
     "axios-rate-limit": "^1.2.1",
     "http-proxy": "^1.18.0",
