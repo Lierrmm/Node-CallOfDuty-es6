@@ -1,7 +1,7 @@
 import axios from 'axios';
 import uniqid from 'uniqid';
 import rateLimit from 'axios-rate-limit';
-import cors_proxy from './cors.mjs';
+import cors_proxy from './cors.js';
 import util from "util";
 import crypto from 'crypto';
 
