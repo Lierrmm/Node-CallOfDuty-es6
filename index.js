@@ -169,7 +169,7 @@ class api {
 
     MWwz(gamertag, platform = defaultPlatform) {
         return new Promise((resolve, reject) => {
-            brDetails = [];
+            let brDetails = [];
             brDetails.br = {};
             brDetails.br_dmz = {};
             brDetails.br_all = {};
