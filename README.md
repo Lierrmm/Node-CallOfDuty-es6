@@ -3,7 +3,8 @@
 You will now have to login to the API before making any requests. This means you will need a call of duty account.
 Simply call:
 ```javascript
- const API = require('call-of-duty-api')();
+ import { api, platforms } from 'call-of-duty-api-es6';
+ const API = new api(<platform?>, <useCORS?>, <debug?>, <ratelimit?>);
  API.login("<email>", "<password>").then(<?>).catch(<?>);
 ```
 Reasons for this is to bypass a rate limitting issue.
@@ -12,7 +13,7 @@ I have also implemented axios-rate-limit incase you want to implement your own r
 All you need to do is pass a ratelimit object when initializing the module.
 
 ```javascript
-    const API = require('call-of-duty-api')( { platform: 'battle', ratelimit: { maxRequests: 2, perMilliseconds: 1000, maxRPS: 2 } } );
+    ratelimit: { maxRequests: 2, perMilliseconds: 1000, maxRPS: 2 };
 ```
 You can find out more about axios-rate-limit [here](https://www.npmjs.com/package/axios-rate-limit)
 
@@ -24,15 +25,6 @@ Join the discord: [here](https://discord.gg/NuUpvzC)
 
 Call of Duty Api is a wrapper for the "private" API that Activision use on the callofduty.com website.
 
-## Initialize Module
-```javascript
-const API = require('call-of-duty-api')();
-```
-or
-```javascript
-const API = require('call-of-duty-api')({ platform: "battle" });
-```
-
 ## List of Platforms
 -   psn
 -   steam
@@ -41,7 +33,7 @@ const API = require('call-of-duty-api')({ platform: "battle" });
 -   uno (activision ID)
 ```javascript
 //How to use
-API.platforms.psn
+platforms.psn
 ```
 Please note:
 `uno` is for looking up via activision ID and this is only supported on a couple of endpoints.
@@ -54,7 +46,7 @@ Please note:
 
 ## Get Stats
 ```javascript
-API.MWstats(<gamertag>, API.platforms.<platform>).then((output) => {
+API.MWstats(<gamertag>, platforms.<platform>).then((output) => {
     console.log(output);  
 }).catch((err) => {
     console.log(err);
@@ -87,7 +79,8 @@ API.MWstats(<gamertag>, API.platforms.<platform>).then((output) => {
 
 # Example Project
 ```javascript
-const API = require('call-of-duty-api')({ platform: "battle" });
+import { api, platforms } from 'call-of-duty-api-es6';
+const API = new api(platforms.battle);
 //I want Warzone Data
 API.MWwz('Lierrmm#2364').then(data => {
     console.log(data);  // see output
