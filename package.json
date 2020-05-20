@@ -1,6 +1,6 @@
 {
   "name": "call-of-duty-api-es6",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Wrapper for the Call Of Duty API.",
   "main": "index.js",
   "scripts": {
@@ -26,10 +26,14 @@
     "url": "https://github.com/Lierrmm/Node-CallOfDuty-es6/issues"
   },
   "homepage": "https://github.com/Lierrmm/Node-CallOfDuty-es6#readme",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/Lierrmm"
+  },
   "dependencies": {
     "axios": "^0.19.2",
     "axios-rate-limit": "^1.2.1",
-    "http-proxy": "^1.18.0",
+    "http-proxy": "^1.18.1",
     "proxy-from-env": "^1.1.0",
     "uniqid": "^5.2.0"
   }
