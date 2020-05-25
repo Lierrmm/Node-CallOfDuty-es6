@@ -110,7 +110,6 @@ class api {
         });
     }
     
-    //#region modernwarfare
      MWleaderboard(page, platform = defaultPlatform) {
         return new Promise((resolve, reject) => {
             if (platform === "steam") reject("Steam Doesn't exist for MW. Try `battle` instead.");
@@ -129,6 +128,15 @@ class api {
         });
     }
 
+    MWcombatmpdate (gamertag, start = 0, end = 0, platform = defaultPlatform) {
+        return new Promise((resolve, reject) => {
+            if (platform === "steam") reject("Steam Doesn't exist for MW. Try `battle` instead.");
+            if (platform === "battle" || platform === "uno") gamertag = this.cleanClientName(gamertag);
+            var urlInput = defaultBaseURL + util.format("crm/cod/v2/title/%s/platform/%s/gamer/%s/matches/mp/start/%d/end/%d/details", modernwarfare, platform, gamertag, start, end);
+            this.sendRequest(urlInput).then(data => resolve(data)).catch(e => reject(e));
+        });
+    }
+
     MWcombatwz(gamertag, platform = defaultPlatform) {
         return new Promise((resolve, reject) => {
             if (platform === "steam") reject("Steam Doesn't exist for MW. Try `battle` instead.");
@@ -138,8 +146,16 @@ class api {
         });
     }
 
+    MWcombatwzdate (gamertag, start = 0, end = 0, platform = defaultPlatform) {
+        return new Promise((resolve, reject) => {
+            if (platform === "steam") reject("Steam Doesn't exist for MW. Try `battle` instead.");
+            if (platform === "battle" || platform === "uno") gamertag = this.cleanClientName(gamertag);
+            var urlInput = defaultBaseURL + util.format("crm/cod/v2/title/%s/platform/%s/gamer/%s/matches/wz/start/%d/end/%d/details", modernwarfare, platform, gamertag, start, end);
+            this.sendRequest(urlInput).then(data => resolve(data)).catch(e => reject(e));
+        });
+    }
+
     MWfullcombatmp(gamertag, platform = defaultPlatform) {
-        //https://my.callofduty.com/api/papi-client/crm/cod/v2/title/mw/platform/battle/gamer/lierrmm%232364/matches/mp/start/0/end/0
         return new Promise((resolve, reject) => {
             if (platform === "steam") reject("Steam Doesn't exist for MW. Try `battle` instead.");
             if (platform === "battle" || platform === "uno") gamertag = this.cleanClientName(gamertag);
@@ -148,12 +164,29 @@ class api {
         });
     }
 
+    MWfullcombatmpdate (gamertag, start = 0, end = 0, platform = defaultPlatform) {
+        return new Promise((resolve, reject) => {
+            if (platform === "steam") reject("Steam Doesn't exist for MW. Try `battle` instead.");
+            if (platform === "battle" || platform === "uno") gamertag = this.cleanClientName(gamertag);
+            var urlInput = defaultBaseURL + util.format("crm/cod/v2/title/%s/platform/%s/gamer/%s/matches/mp/start/%d/end/%d", modernwarfare, platform, gamertag, start, end);
+            this.sendRequest(urlInput).then(data => resolve(data)).catch(e => reject(e));
+        });
+    }
+
     MWfullcombatwz(gamertag, platform = defaultPlatform) {
-        //https://my.callofduty.com/api/papi-client/crm/cod/v2/title/mw/platform/battle/gamer/lierrmm%232364/matches/mp/start/0/end/0
         return new Promise((resolve, reject) => {
             if (platform === "steam") reject("Steam Doesn't exist for MW. Try `battle` instead.");
             if (platform === "battle" || platform === "uno") gamertag = this.cleanClientName(gamertag);
             var urlInput = defaultBaseURL + util.format("crm/cod/v2/title/%s/platform/%s/gamer/%s/matches/wz/start/0/end/0", modernwarfare, platform, gamertag);
+            this.sendRequest(urlInput).then(data => resolve(data)).catch(e => reject(e));
+        });
+    }
+
+    MWfullcombatwzdate (gamertag, start = 0, end = 0, platform = defaultPlatform) {
+        return new Promise((resolve, reject) => {
+            if (platform === "steam") reject("Steam Doesn't exist for MW. Try `battle` instead.");
+            if (platform === "battle" || platform === "uno") gamertag = this.cleanClientName(gamertag);
+            var urlInput = defaultBaseURL + util.format("crm/cod/v2/title/%s/platform/%s/gamer/%s/matches/wz/start/%d/end/%d", modernwarfare, platform, gamertag, start, end);
             this.sendRequest(urlInput).then(data => resolve(data)).catch(e => reject(e));
         });
     }
@@ -284,7 +317,7 @@ class api {
             this.sendRequestUserInfoOnly(urlInput).then(data => resolve(data)).catch(e => reject(e));
         });
     }
-    //#endregion
+
     sendRequestUserInfoOnly(url) {
         return new Promise((resolve, reject) => {
             if (!loggedIn) reject("Not Logged In.");

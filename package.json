@@ -1,6 +1,6 @@
 {
   "name": "call-of-duty-api-es6",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Wrapper for the Call Of Duty API.",
   "main": "index.js",
   "scripts": {
