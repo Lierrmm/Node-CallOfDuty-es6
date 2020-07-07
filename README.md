@@ -1,4 +1,6 @@
 # MAJOR CHANGES
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FLierrmm%2FNode-CallOfDuty-es6.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FLierrmm%2FNode-CallOfDuty-es6?ref=badge_shield)
+
 
 You will now have to login to the API before making any requests. This means you will need a call of duty account.
 Simply call:
@@ -139,3 +141,6 @@ API.MWwz('Lierrmm#2364').then(data => {
     deaths: 67,
     title: 'br_all' } ]
 ```
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FLierrmm%2FNode-CallOfDuty-es6.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FLierrmm%2FNode-CallOfDuty-es6?ref=badge_large)
